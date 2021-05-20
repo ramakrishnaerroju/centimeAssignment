@@ -1,45 +1,45 @@
-import React, { useState } from "react";
-import HomeScreenView from "./HomeScreen";
+import React, { useState, useEffect } from "react";
+import Sankey from "./Sankey";
+import FormComponent from "./FormComponent";
+//import MockData from "./../assets/mock.json";
+import axios from "./../axios/axios";
 
 const HomeScreenWrapper = () => {
-  const [data] = useState([
-    {
-      name: "Saint Mary Street Pump Station: CNTRF105M847638",
-      modelNumber: "CNTRF10",
-      serialNumber: "CNTRF10B7836748CC",
-      description: "Pump for station 834739",
-      location: "Needham, MA",
-    },
-    {
-      name: "Saint Mary Street Pump Station: CNTRF105M847638",
-      modelNumber: "CNTRF11",
-      serialNumber: "CNTRF10B7836748CC",
-      description: "Pump for station 834734",
-      location: "Needham, MA",
-    },
-    {
-      name: "Saint Mary Street Pump Station: CNTRF105M847638",
-      modelNumber: "CNTRF14",
-      serialNumber: "CNTRF10B7836748CC",
-      description: "Pump for station 834639",
-      location: "Needham, MA",
-    },
-    {
-      name: "Saint Mary Street Pump Station: CNTRF105M847638",
-      modelNumber: "CNTRF15",
-      serialNumber: "CNTRF10B7836748CC",
-      description: "Pump for station 834734",
-      location: "Needham, MA",
-    },
-    {
-      name: "Saint Mary Street Pump Station: CNTRF105M847638",
-      modelNumber: "CNTRF18",
-      serialNumber: "CNTRF10B7836748CC",
-      description: "Pump for station 834639",
-      location: "Needham, MA",
-    },
-  ]);
-  return <HomeScreenView data={data}></HomeScreenView>;
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    axios
+      .getData()
+      .then(({ data: { record } }) => {
+        setData(record.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onSubmitCallback = (values) => {
+    // add the values to data array to update Sankey
+    let newItem = Object.values(values);
+    setData([...data, newItem]);
+  };
+
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="form-container col-lg-6 col-sm-12">
+          <FormComponent onSubmitCallback={onSubmitCallback} />
+        </div>
+        <div className="col-lg-6 col-sm-12 mb-4">
+          <Sankey data={data} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default HomeScreenWrapper;

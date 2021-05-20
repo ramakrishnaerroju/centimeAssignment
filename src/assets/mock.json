@@ -1,0 +1,12 @@
+{
+  "data": [
+    ["Income", "Expenditures", "Amount"],
+    ["Salary", "Bills", 3000],
+    ["Bills", "Electric", 1000],
+    ["Bills", "Mobile", 2000],
+    ["House properties", "EMI", 10000],
+    ["Shop", "", 1000],
+    ["OLA Serice", "Buy Gold", 500],
+    ["House properties", "School fees", 4000]
+  ]
+}

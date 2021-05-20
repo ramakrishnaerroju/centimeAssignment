@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Pumps Overview</h2>
+        <img src="https://centime.com/images/logo.png" alt="centime logo" />
       </header>
-      <div>
+      <div className="main-content">
         <HomeScreenWrapper></HomeScreenWrapper>
       </div>
     </div>
