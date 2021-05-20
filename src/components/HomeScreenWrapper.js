@@ -2,31 +2,48 @@ import React, { useState, useEffect } from "react";
 import Sankey from "./Sankey";
 import FormComponent from "./FormComponent";
 //import MockData from "./../assets/mock.json";
-import axios from "./../axios/axios";
+// import axios from "./../axios/axios";
+import { connect } from "react-redux";
+import {
+  getSankeyDataProcessRequest,
+  getSankeyDataProcess,
+} from "./../redux/actions/actionTypes";
 
-const HomeScreenWrapper = () => {
+const HomeScreenWrapper = ({
+  sankeyData,
+  getSankeyData,
+  isSankeyDataLoading,
+  sankeyDataFetchingErrorMessage,
+}) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    getSankeyData();
+  }, [getSankeyData]);
 
-  const fetchData = () => {
-    axios
-      .getData()
-      .then(({ data: { record } }) => {
-        setData(record.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  useEffect(() => {
+    if (sankeyData) {
+      setData(sankeyData);
+    }
+  }, [sankeyData]);
+
+  if (sankeyDataFetchingErrorMessage) {
+    return (
+      <div>
+        <h2>{sankeyDataFetchingErrorMessage}</h2>
+      </div>
+    );
+  }
 
   const onSubmitCallback = (values) => {
     // add the values to data array to update Sankey
     let newItem = Object.values(values);
     setData([...data, newItem]);
   };
+
+  if (isSankeyDataLoading === undefined || isSankeyDataLoading === true) {
+    return <div>Loading data from server...</div>;
+  }
 
   return (
     <div className="container">
@@ -42,4 +59,17 @@ const HomeScreenWrapper = () => {
   );
 };
 
-export default HomeScreenWrapper;
+const mapStateToProps = (state) => {
+  const sankeyData = state.sankeyDataReducer;
+  const isSankeyDataLoading = state.loaderReducer[getSankeyDataProcess];
+  const sankeyDataFetchingErrorMessage =
+    state.errorReducer[getSankeyDataProcess];
+
+  return { sankeyData, isSankeyDataLoading, sankeyDataFetchingErrorMessage };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getSankeyData: () => dispatch(getSankeyDataProcessRequest()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreenWrapper);

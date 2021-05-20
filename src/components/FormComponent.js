@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { formHeader } from "./../config.json";
+import { formHeader } from "./../app.json";
 
 const FormView = ({ onSubmitCallback }) => (
   <div className="container">

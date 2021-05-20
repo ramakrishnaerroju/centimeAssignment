@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import Config from "./../config.json";
+import Config from "./../app.json";
 
 const Sankey = ({ data }) => {
   return (
