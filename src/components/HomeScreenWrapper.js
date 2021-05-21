@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Sankey from "./Sankey";
 import FormComponent from "./FormComponent";
 //import MockData from "./../assets/mock.json";
-// import axios from "./../axios/axios";
 import { connect } from "react-redux";
 import {
   getSankeyDataProcessRequest,
