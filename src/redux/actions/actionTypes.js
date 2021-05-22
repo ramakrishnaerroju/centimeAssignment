@@ -7,7 +7,7 @@ import {
 } from "../../common/commonActionTypes";
 
 // get data
-const getSankeyDataProcess = "USER_GET_CATEGORIES_PROCESS";
+const getSankeyDataProcess = "GET_SANKEYDATA_PROCESS";
 const getSankeyDataProcessRequest = createAction(
   `${getSankeyDataProcess}_${SAGA_REQUEST_SUFFIX}`
 );

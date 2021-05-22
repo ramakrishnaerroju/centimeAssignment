@@ -3,10 +3,10 @@ import ActionTypes from "../actions/actionTypes";
 import { doSagaLifeCycle } from "../../common/sagaUtils";
 import Service from "../../services/Service";
 
-function* getSankeyDataSaga() {
+export function* getSankeyDataSaga() {
   yield doSagaLifeCycle(ActionTypes.getSankeyDataProcess, function* () {
     try {
-      const sankeyData = yield call(Service.getData);
+      const sankeyData = yield call(Service.fetchSankeyData);
       yield put(ActionTypes.getSankeyDataSuccess(sankeyData));
     } catch (error) {
       yield put(ActionTypes.getSankeyDataProcessError(error.message));

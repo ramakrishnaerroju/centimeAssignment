@@ -23,14 +23,13 @@ const Sankey = ({ data }) => {
           },
         }}
         data={data}
-        rootProps={{ "data-testid": "1" }}
       />
     </>
   );
 };
 
 Sankey.propTypes = {
-  sankeyData: PropTypes.arrayOf(PropTypes.any).isRequired,
+  data: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 export default Sankey;

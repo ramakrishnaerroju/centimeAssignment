@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form snapshot test 1`] = `
+<div
+  className="container"
+>
+  <h2>
+    addData
+  </h2>
+  <form
+    action="#"
+    className="form-group"
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="formControlInput1"
+      >
+        income
+      </label>
+      <input
+        className="form-control"
+        id="formControlInput1"
+        name="income"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <br />
+    <div>
+      <label
+        htmlFor="formControlInput2"
+      >
+        expenditure
+      </label>
+      <input
+        className="form-control"
+        id="formControlInput2"
+        name="expenditure"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div />
+    <br />
+    <div>
+      <label
+        htmlFor="formControlInput3"
+      >
+        amount
+      </label>
+      <input
+        className="form-control"
+        id="formControlInput3"
+        name="amount"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="number"
+        value=""
+      />
+    </div>
+    <div />
+    <br />
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      submit
+    </button>
+  </form>
+</div>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sankey chart snapshot test 1`] = `
+Array [
+  <h2>
+    sankeyHeader
+  </h2>,
+  <div>
+    Loading Chart
+  </div>,
+]
+`;
