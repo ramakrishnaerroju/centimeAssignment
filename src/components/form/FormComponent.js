@@ -14,7 +14,7 @@ const FormView = ({ onSubmitCallback }) => {
         validate={(values) => {
           const errors = {};
           if (!values.income && !values.expenditure) {
-            errors.income = "Either income or expenditure are required";
+            errors.income = "Either income or expenditure is required";
           }
           if (!values.amount) {
             errors.amount = "Amount is required";
@@ -49,7 +49,7 @@ const FormView = ({ onSubmitCallback }) => {
               />
             </div>
             <div>
-              <ErrorMessage name="income" component="div" />
+              <ErrorMessage name="income" component="div" className="error" />
             </div>
             <br />
             <div>
@@ -62,7 +62,7 @@ const FormView = ({ onSubmitCallback }) => {
               />
             </div>
             <div>
-              <ErrorMessage name="amount" component="div" />
+              <ErrorMessage name="amount" component="div" className="error" />
             </div>
             <br />
             <button

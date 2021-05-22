@@ -5,6 +5,8 @@ import HomePage from "./components/homepage/HomePageWrapper";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import ActionTypes from "./redux/actions/actionTypes";
+import { Button } from "./components/custom-elements";
+import Header from "./components/header/header";
 
 function App({ language, toggleLanguageAction }) {
   const { i18n } = useTranslation();
@@ -20,12 +22,8 @@ function App({ language, toggleLanguageAction }) {
   return (
     <div className="App">
       <div className="header-container">
-        <header className="App-header">
-          <img src="https://centime.com/images/logo.png" alt="centime logo" />
-        </header>
-        <button className="btn btn-primary" onClick={changeLanguage}>
-          Change language
-        </button>
+        <Header />
+        <Button btnText="Change language" callback={changeLanguage} />
       </div>
 
       <div className="main-content">

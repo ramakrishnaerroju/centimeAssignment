@@ -36,3 +36,8 @@
 .form-container {
   margin-bottom: 2em;
 }
+
+.error {
+  color: red;
+  font-size: 15px;
+}
