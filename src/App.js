@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import HomeScreenWrapper from "./components/HomeScreenWrapper";
 import "bootstrap/dist/css/bootstrap.min.css";
+import HomePage from "./components/homepage/HomePageWrapper";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import ActionTypes from "./redux/actions/actionTypes";
@@ -29,7 +29,7 @@ function App({ language, toggleLanguageAction }) {
       </div>
 
       <div className="main-content">
-        <HomeScreenWrapper />
+        <HomePage />
       </div>
     </div>
   );

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Sankey from "./Sankey";
-import FormComponent from "./FormComponent";
 import { connect } from "react-redux";
-import ActionTypes from "./../redux/actions/actionTypes";
+import ActionTypes from "../../redux/actions/actionTypes";
 import PropTypes from "prop-types";
+import HomePage from "./HomePageView";
 /**
  *
  * if we use mock data
@@ -16,6 +15,7 @@ const HomeScreenWrapper = ({
   isSankeyDataLoading,
   sankeyDataFetchingErrorMessage,
 }) => {
+  // Keeping below local state to add new data through form
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -46,18 +46,7 @@ const HomeScreenWrapper = ({
     return <div>Loading data from server...</div>;
   }
 
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="form-container col-lg-6 col-sm-12">
-          <FormComponent onSubmitCallback={onSubmitCallback} />
-        </div>
-        <div className="col-lg-6 col-sm-12 mb-4">
-          <Sankey data={data} />
-        </div>
-      </div>
-    </div>
-  );
+  return <HomePage onSubmitCallback={onSubmitCallback} data={data} />;
 };
 
 HomeScreenWrapper.propTypes = {
