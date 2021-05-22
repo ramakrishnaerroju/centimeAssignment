@@ -8,10 +8,10 @@ import { Provider } from "react-redux";
 import store from "./redux/store/store";
 
 ReactDOM.render(
-  <Suspense fallback={<Loader />}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Suspense fallback={<Loader />}>
       <App />
-    </Provider>
-  </Suspense>,
+    </Suspense>
+  </Provider>,
   document.getElementById("root")
 );

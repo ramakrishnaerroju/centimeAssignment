@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Sankey from "./Sankey";
 import FormComponent from "./FormComponent";
-//import MockData from "./../assets/mock.json";
 import { connect } from "react-redux";
 import ActionTypes from "./../redux/actions/actionTypes";
+import PropTypes from "prop-types";
+/**
+ *
+ * if we use mock data
+ * import MockData from "./../assets/mock.json";
+ */
 
 const HomeScreenWrapper = ({
   sankeyData,
@@ -53,6 +58,18 @@ const HomeScreenWrapper = ({
       </div>
     </div>
   );
+};
+
+HomeScreenWrapper.propTypes = {
+  sankeyData: PropTypes.arrayOf(PropTypes.any),
+  isSankeyDataLoading: PropTypes.bool,
+  sankeyDataFetchingErrorMessage: PropTypes.string,
+  getSankeyData: PropTypes.func.isRequired,
+};
+
+HomeScreenWrapper.defaultProps = {
+  isSankeyDataLoading: false,
+  sankeyDataFetchingErrorMessage: "",
 };
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
 const FormView = ({ onSubmitCallback }) => {
   const { t } = useTranslation();
@@ -76,6 +77,10 @@ const FormView = ({ onSubmitCallback }) => {
       </Formik>
     </div>
   );
+};
+
+FormView.propTypes = {
+  onSubmitCallback: PropTypes.func.isRequired,
 };
 
 export default FormView;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
 const Sankey = ({ data }) => {
   const { t } = useTranslation();
@@ -22,10 +23,14 @@ const Sankey = ({ data }) => {
           },
         }}
         data={data}
-        rootProps={{ "data-testid": "3" }}
+        rootProps={{ "data-testid": "1" }}
       />
     </>
   );
+};
+
+Sankey.propTypes = {
+  sankeyData: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 export default Sankey;

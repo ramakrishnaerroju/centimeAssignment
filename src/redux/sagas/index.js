@@ -1,4 +1,4 @@
-import { getSankeyData } from "./getSankeyDataSagas";
+import { getSankeyData } from "./sankeyDataSaga";
 import { fork, all } from "redux-saga/effects";
 
 export default function* rootSaga() {

@@ -18,7 +18,6 @@ function App({ language, toggleLanguageAction }) {
   }, [language, i18n]);
 
   return (
-    // <Provider store={store}>
     <div className="App">
       <div className="header-container">
         <header className="App-header">
