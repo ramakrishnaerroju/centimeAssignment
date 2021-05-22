@@ -7,21 +7,41 @@ import {
 } from "../../common/commonActionTypes";
 
 // get data
-export const getSankeyDataProcess = "USER_GET_CATEGORIES_PROCESS";
-export const getSankeyDataProcessRequest = createAction(
+const getSankeyDataProcess = "USER_GET_CATEGORIES_PROCESS";
+const getSankeyDataProcessRequest = createAction(
   `${getSankeyDataProcess}_${SAGA_REQUEST_SUFFIX}`
 );
-export const getSankeyDataProcessComplete = createAction(
+const getSankeyDataProcessComplete = createAction(
   `${getSankeyDataProcess}_${SAGA_COMPLETE_SUFFIX}`
 );
-export const getSankeyDataProcessClear = createAction(
+const getSankeyDataProcessClear = createAction(
   `${getSankeyDataProcess}_${SAGA_CLEAR_SUFFIX}`
 );
-export const getSankeyDataProcessError = createAction(
+const getSankeyDataProcessError = createAction(
   `${getSankeyDataProcess}_${SAGA_ERROR_SUFFIX}`
 );
 
 /*
  * API Success Responses
  */
-export const getSankeyDataSuccess = createAction("GET_SANKEY_DATA_SUCCESS");
+const getSankeyDataSuccess = createAction("GET_SANKEY_DATA_SUCCESS");
+
+/*
+ * translation
+ */
+
+const toggleLanguageAction = createAction("TOGGLE_LANGUAGE");
+const toggleLanguage = (language) => toggleLanguageAction(language);
+
+const ActionTypes = {
+  toggleLanguageAction,
+  toggleLanguage,
+
+  getSankeyDataProcess,
+  getSankeyDataProcessRequest,
+  getSankeyDataProcessError,
+  getSankeyDataProcessClear,
+  getSankeyDataProcessComplete,
+  getSankeyDataSuccess,
+};
+export default ActionTypes;

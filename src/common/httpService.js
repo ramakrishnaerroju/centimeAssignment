@@ -25,7 +25,7 @@ httpInstance.interceptors.request.use((config) => {
   };
 });
 
-export default {
+const httpData = {
   httpInstance,
   get: httpInstance.get,
   post: httpInstance.post,
@@ -33,3 +33,4 @@ export default {
   delete: httpInstance.delete,
   patch: httpInstance.patch,
 };
+export default httpData;

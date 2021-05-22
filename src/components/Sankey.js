@@ -1,11 +1,12 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import Config from "./../app.json";
+import { useTranslation } from "react-i18next";
 
 const Sankey = ({ data }) => {
+  const { t } = useTranslation();
   return (
     <>
-      <h2>{Config.sankeyHeader}</h2>
+      <h2>{t("sankeyHeader")}</h2>
       <Chart
         width={600}
         height={"600px"}

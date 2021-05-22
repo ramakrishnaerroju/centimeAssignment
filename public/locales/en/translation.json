@@ -4,5 +4,5 @@
   "expenditure": "Expenditure",
   "amount": "Amount",
   "submit": "Submit",
-  "sankeyTitle": "Sankey Diagram"
+  "sankeyHeader": "Sankey Diagram"
 }

@@ -1,36 +1,49 @@
-import React, { Suspense } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import HomeScreenWrapper from "./components/HomeScreenWrapper";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Provider } from "react-redux";
-import store from "./redux/store/store";
+import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
+import ActionTypes from "./redux/actions/actionTypes";
 
-function App() {
+function App({ language, toggleLanguageAction }) {
   const { i18n } = useTranslation();
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage("de");
+  const changeLanguage = () => {
+    toggleLanguageAction();
   };
 
-  return (
-    <Provider store={store}>
-      <div className="App">
-        <div className="header-container">
-          <header className="App-header">
-            <img src="https://centime.com/images/logo.png" alt="centime logo" />
-          </header>
-          <button className="btn btn-primary" onClick={changeLanguage}>
-            Change language
-          </button>
-        </div>
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language, i18n]);
 
-        <div className="main-content">
-          <HomeScreenWrapper />
-        </div>
+  return (
+    // <Provider store={store}>
+    <div className="App">
+      <div className="header-container">
+        <header className="App-header">
+          <img src="https://centime.com/images/logo.png" alt="centime logo" />
+        </header>
+        <button className="btn btn-primary" onClick={changeLanguage}>
+          Change language
+        </button>
       </div>
-    </Provider>
+
+      <div className="main-content">
+        <HomeScreenWrapper />
+      </div>
+    </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const { language } = state.i18nReducer;
+
+  return { language };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleLanguageAction: () => dispatch(ActionTypes.toggleLanguageAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,6 +1,5 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { formHeader } from "./../app.json";
 import { useTranslation } from "react-i18next";
 
 const FormView = ({ onSubmitCallback }) => {
@@ -8,7 +7,7 @@ const FormView = ({ onSubmitCallback }) => {
 
   return (
     <div className="container">
-      <h2>{formHeader}</h2>
+      <h2>{t("addData")}</h2>
       <Formik
         initialValues={{ income: "", expenditure: "", amount: "" }}
         validate={(values) => {

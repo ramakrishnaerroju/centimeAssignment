@@ -3,10 +3,7 @@ import Sankey from "./Sankey";
 import FormComponent from "./FormComponent";
 //import MockData from "./../assets/mock.json";
 import { connect } from "react-redux";
-import {
-  getSankeyDataProcessRequest,
-  getSankeyDataProcess,
-} from "./../redux/actions/actionTypes";
+import ActionTypes from "./../redux/actions/actionTypes";
 
 const HomeScreenWrapper = ({
   sankeyData,
@@ -60,15 +57,16 @@ const HomeScreenWrapper = ({
 
 const mapStateToProps = (state) => {
   const sankeyData = state.sankeyDataReducer;
-  const isSankeyDataLoading = state.loaderReducer[getSankeyDataProcess];
+  const isSankeyDataLoading =
+    state.loaderReducer[ActionTypes.getSankeyDataProcess];
   const sankeyDataFetchingErrorMessage =
-    state.errorReducer[getSankeyDataProcess];
+    state.errorReducer[ActionTypes.getSankeyDataProcess];
 
   return { sankeyData, isSankeyDataLoading, sankeyDataFetchingErrorMessage };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getSankeyData: () => dispatch(getSankeyDataProcessRequest()),
+  getSankeyData: () => dispatch(ActionTypes.getSankeyDataProcessRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreenWrapper);

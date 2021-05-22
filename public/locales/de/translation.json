@@ -4,5 +4,5 @@
   "expenditure": "Ausgaben",
   "amount": "Menge",
   "submit": "einreichen",
-  "sankeyTitle": "Sankey Diagramm"
+  "sankeyHeader": "Sankey Diagramm"
 }
